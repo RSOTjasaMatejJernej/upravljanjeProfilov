@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - DOCKER_IMAGE=rso/upravljanje-profilov:0.01
+  - DOCKER_IMAGE=tjasaj/upravljanje-profilov:0.01
 
 script:
   - mvn clean package -U
