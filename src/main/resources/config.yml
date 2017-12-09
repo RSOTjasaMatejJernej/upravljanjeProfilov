@@ -1,0 +1,11 @@
+kumuluzee:
+  name: upravljanjeProfilov
+  env:
+    name: dev
+  version: 1.0.0
+  config:
+    etcd:
+      hosts: http://192.168.99.100:2379
+  discovery:
+    etcd:
+      hosts: http://192.168.99.100:2379

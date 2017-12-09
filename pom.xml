@@ -5,12 +5,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jax-rs</artifactId>
-    <groupId>com.kumuluz.ee.samples</groupId>
-    <version>2.5.0-SNAPSHOT</version>
+    <artifactId>upravljanjeProfilov</artifactId>
+    <groupId>si.fri.rso</groupId>
+    <version>1.0.0-SNAPSHOT</version>
 
-    <name>KumuluzEE JAX-RS sample</name>
-    <description>JAX-RS usage sample with KumuluzEE</description>
+    <name>upravljanjeProfilov</name>
+    <description>Upravljanje profilov</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -44,6 +44,27 @@
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-cdi-weld</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.discovery</groupId>
+            <artifactId>kumuluzee-discovery-etcd</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.config</groupId>
+            <artifactId>kumuluzee-config-etcd</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+            <version>1.3.0</version>
         </dependency>
     </dependencies>
 
