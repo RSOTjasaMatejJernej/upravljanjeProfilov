@@ -47,6 +47,12 @@ public class UpravljanjeProfilovResources {
     }
 
     @GET
+    public Response getAllProfils() {
+        List<Profil> profils = Database.getProfils();
+        return Response.ok(profils).build();
+    }
+
+    @GET
     @Path("{profilId}")
     public Profil getCustomer(@PathParam("profilId") String profilId) {
         log.debug(baseUrl + "/v1/katalogProfilov?" + profilId);
