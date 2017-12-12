@@ -55,7 +55,7 @@ public class UpravljanjeProfilovResources {
             });
             System.out.println("response je: " + response.toString());
 
-            return Response.ok(response).build();;
+            return Response.ok(response).build();
         }
         catch (Exception e) {
             //log.error(e);
