@@ -48,8 +48,19 @@ public class UpravljanjeProfilovResources {
 
     @GET
     public Response getAllProfils() {
-        List<Profil> profils = Database.getProfils();
-        return Response.ok(profils).build();
+        try {
+            WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");
+            Invocation.Builder b = wt.request();
+            Profil response = b.get(new GenericType<Profil>() {
+            });
+            System.out.println("response je: " + response.toString());
+
+            return Response.ok(response).build();;
+        }
+        catch (Exception e) {
+            //log.error(e);
+            throw e;
+        }
     }
 
     @GET
