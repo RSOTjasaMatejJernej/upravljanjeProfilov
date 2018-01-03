@@ -4,6 +4,7 @@ package si.fri.rso.upravljanjeprofilov;
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.fault.tolerance.annotations.*;
 import com.kumuluz.ee.logs.*;
+import com.kumuluz.ee.fault.tolerance.*;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
