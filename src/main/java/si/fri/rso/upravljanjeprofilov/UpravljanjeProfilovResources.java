@@ -2,6 +2,7 @@
 package si.fri.rso.upravljanjeprofilov;
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
+import com.kumuluz.ee.fault.tolerance.annotations.*;
 import com.kumuluz.ee.logs.*;
 
 import javax.annotation.PostConstruct;
@@ -20,6 +21,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import javax.ws.rs.core.GenericType;
@@ -32,6 +34,7 @@ import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("upravljanjeProfilov")
 @RequestScoped
+@GroupKey("customers")
 public class UpravljanjeProfilovResources {
 
     private Logger log = LogManager.getLogger(UpravljanjeProfilovResources.class.getName());
@@ -47,6 +50,10 @@ public class UpravljanjeProfilovResources {
     }
 
     @GET
+    @CircuitBreaker
+    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+    @Fallback(fallbackMethod = "findCustomersFallback")
+    @CommandKey("find-customers")
     public Response getAllProfils() {
         return Response.ok("test").build();
         /*try {
@@ -63,6 +70,10 @@ public class UpravljanjeProfilovResources {
             //log.error(e);
             throw e;
         }*/
+    }
+
+    public String findCustomersFallback(String query) {
+        return "mikrostoritev ni dosegljiva";
     }
 
     @GET
