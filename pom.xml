@@ -28,16 +28,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>com.kumuluz.ee.fault.tolerance</groupId>
-                <artifactId>kumuluzee-fault-tolerance-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.microprofile.fault-tolerance</groupId>
-                <artifactId>microprofile-fault-tolerance-api</artifactId>
-                <version>${microprofile-faulttolerance.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
