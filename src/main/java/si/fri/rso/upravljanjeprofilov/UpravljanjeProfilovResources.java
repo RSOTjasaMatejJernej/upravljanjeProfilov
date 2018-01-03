@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.inject.Inject;
 
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -23,6 +24,10 @@ import java.net.URL;
 import java.util.List;
 
 import javax.ws.rs.core.GenericType;
+
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 
 import static javax.swing.UIManager.get;
 import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
@@ -47,7 +52,28 @@ public class UpravljanjeProfilovResources {
     }
 
     @GET
+    @CircuitBreaker(requestVolumeThreshold = 2)
+    @Fallback(fallbackMethod = "getAllProfilsFallback")
+    @Timeout
     public Response getAllProfils() {
+        return Response.ok("test").build();
+        /*try {
+            WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");
+            Invocation.Builder b = wt.request();
+            List<Profil> resp = b.get(new GenericType<Profil>(){});
+            Profil response = b.get(new GenericType<Profil>() {
+            });
+            System.out.println("response je: " + response.toString());
+
+            return Response.ok(response).build();
+        }
+        catch (Exception e) {
+            //log.error(e);
+            throw e;
+        }*/
+    }
+
+    public Response getAllProfilsFallback() {
         return Response.ok("test").build();
         /*try {
             WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");

@@ -9,19 +9,3 @@ kumuluzee:
   discovery:
     etcd:
       hosts: http://192.168.99.100:2379
-  fault-tolerance:
-    circuit-breaker:
-      delay: 3s
-    customers:
-      bulkhead:
-        value: 5
-      find-customers:
-        timeout:
-          value: 2500ms
-        circuit-breaker:
-          request-volume-threshold: 30
-          failure-ratio: 0.3
-          metrics:
-            rolling-window:
-              size: 8s
-              buckets: 4

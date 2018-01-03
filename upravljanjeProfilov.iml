@@ -94,16 +94,16 @@
     <orderEntry type="library" name="Maven: com.kumuluz.ee.discovery:kumuluzee-discovery-etcd:1.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.kumuluz.ee.discovery:kumuluzee-discovery-common:1.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.vdurmont:semver4j:2.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.mousio:etcd4j:2.13.0" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec-http:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.7.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.7.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.mousio:etcd4j:2.14.0" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-http:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.17.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.10" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.10" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-afterburner:2.8.10" level="project" />
@@ -119,18 +119,21 @@
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-jul:2.8.2" level="project" />
     <orderEntry type="library" name="Maven: com.kumuluz.ee.metrics:kumuluzee-metrics-core:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.osgi:org.osgi.annotation.versioning:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-core:3.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.22" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-jvm:3.2.4" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.metrics:microprofile-metrics-api:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.osgi:org.osgi.annotation.versioning:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.kumuluz.ee.fault.tolerance:kumuluzee-fault-tolerance-hystrix:1.0.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.kumuluz.ee.fault.tolerance:kumuluzee-fault-tolerance-common:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.fault-tolerance:microprofile-fault-tolerance-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.netflix.hystrix:hystrix-core:1.5.12" level="project" />
     <orderEntry type="library" name="Maven: com.netflix.archaius:archaius-core:0.4.1" level="project" />
     <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.8" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: io.reactivex:rxjava:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.9" level="project" />
+    <orderEntry type="library" name="Maven: com.netflix.hystrix:hystrix-metrics-event-stream:1.5.12" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.netflix.hystrix:hystrix-serialization:1.5.12" level="project" />
   </component>
 </module>
