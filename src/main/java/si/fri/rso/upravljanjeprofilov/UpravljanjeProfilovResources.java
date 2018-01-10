@@ -52,9 +52,7 @@ public class UpravljanjeProfilovResources {
     }
 
     @GET
-    @CircuitBreaker(requestVolumeThreshold = 2)
     @Fallback(fallbackMethod = "getAllProfilsFallback")
-    @Timeout
     public Response getAllProfils() {
         return Response.ok("test").build();
         /*try {
@@ -74,7 +72,7 @@ public class UpravljanjeProfilovResources {
     }
 
     public Response getAllProfilsFallback() {
-        return Response.ok("test").build();
+        return null);
         /*try {
             WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");
             Invocation.Builder b = wt.request();
