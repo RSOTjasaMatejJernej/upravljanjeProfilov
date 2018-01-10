@@ -72,7 +72,7 @@ public class UpravljanjeProfilovResources {
     }
 
     public Response getAllProfilsFallback() {
-        return null);
+        return null;
         /*try {
             WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");
             Invocation.Builder b = wt.request();
