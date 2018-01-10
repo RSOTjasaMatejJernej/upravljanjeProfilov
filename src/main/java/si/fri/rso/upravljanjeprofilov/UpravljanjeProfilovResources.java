@@ -52,8 +52,6 @@ public class UpravljanjeProfilovResources {
     }
 
     @GET
-    @Fallback(fallbackMethod = "getAllProfilsFallback")
-    @Timeout
     public Response getAllProfils() {
         return Response.ok("test").build();
         /*try {
@@ -92,21 +90,16 @@ public class UpravljanjeProfilovResources {
 
     @GET
     @Path("{profilId}")
+    @Fallback(fallbackMethod = "getAllProfilsFallback")
+    @Timeout
     public Profil getCustomer(@PathParam("profilId") String profilId) {
-        log.debug(baseUrl + "/v1/katalogProfilov?" + profilId);
+        WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/" + profilId);
+        Invocation.Builder b = wt.request();
+        Profil response = b.get(new GenericType<Profil>() {
+        });
+        System.out.println("response je: " + response.toString());
 
-       try {
-           WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/" + profilId);
-           Invocation.Builder b = wt.request();
-           Profil response = b.get(new GenericType<Profil>() {
-           });
-           System.out.println("response je: " + response.toString());
-
-            return response;
-        } catch (Exception e) {
-            //log.error(e);
-            throw e;
-        }}/*
+        return response;/*
         try {
             String response = sendGet(profilId);
 
