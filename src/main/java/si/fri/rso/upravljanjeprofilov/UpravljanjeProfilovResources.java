@@ -53,6 +53,7 @@ public class UpravljanjeProfilovResources {
 
     @GET
     @Fallback(fallbackMethod = "getAllProfilsFallback")
+    @Timeout
     public Response getAllProfils() {
         return Response.ok("test").build();
         /*try {
@@ -72,7 +73,7 @@ public class UpravljanjeProfilovResources {
     }
 
     public Response getAllProfilsFallback() {
-        return null;
+        return Response.ok("Napaka").build();
         /*try {
             WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");
             Invocation.Builder b = wt.request();
