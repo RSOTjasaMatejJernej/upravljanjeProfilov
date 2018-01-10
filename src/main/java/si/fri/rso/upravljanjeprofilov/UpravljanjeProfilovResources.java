@@ -99,15 +99,8 @@ public class UpravljanjeProfilovResources {
         });
         System.out.println("response je: " + response.toString());
 
-        return response;/*
-        try {
-            String response = sendGet(profilId);
-
-            return Response.ok(response).build();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Response.ok("exception").build();
-        }*/
+        return response;
+    }
 
 
     private String sendGet(String profilId) throws Exception {
