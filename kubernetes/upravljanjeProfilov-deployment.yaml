@@ -10,7 +10,7 @@ spec:
         app: upravljanjeProfilov
     spec:
       containers:
-      - image: tjasaj/upravljanje-profilov:0.05
+      - image: tjasaj/upravljanje-profilov:0.06
         name: upravljanje-profilov
         env:
           - name: KUMULUZEE_DISCOVERY_CLUSTER

@@ -97,6 +97,7 @@ public class UpravljanjeProfilovResources {
 
     public Profil getAllProfilsFallback(String profilId) {
         Profil response = new Profil();
+        response.setId("Mikrostoritev ni na voljo.");
 
         System.out.println("response je: delaa" + response.toString());
 
