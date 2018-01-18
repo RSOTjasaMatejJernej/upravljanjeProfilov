@@ -95,8 +95,12 @@ public class UpravljanjeProfilovResources {
         return response;
     }
 
-    public Response getAllProfilsFallback(String profilId) {
-        return Response.ok("Mikrostoritev ni dosegljiva.").build();
+    public Profil getAllProfilsFallback(String profilId) {
+        Profil response = new Profil();
+
+        System.out.println("response je: delaa" + response.toString());
+
+        return response;
     }
 
 
