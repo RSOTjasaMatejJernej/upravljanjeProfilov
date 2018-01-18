@@ -2,6 +2,8 @@
 package si.fri.rso.upravljanjeprofilov;
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
+import com.kumuluz.ee.fault.tolerance.annotations.CommandKey;
+import com.kumuluz.ee.fault.tolerance.annotations.GroupKey;
 import com.kumuluz.ee.logs.*;
 
 import javax.annotation.PostConstruct;
@@ -21,6 +23,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import javax.ws.rs.core.GenericType;
@@ -28,6 +31,7 @@ import javax.ws.rs.core.GenericType;
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Timeout;
+import org.eclipse.microprofile.faulttolerance.Bulkhead;
 
 import static javax.swing.UIManager.get;
 import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
@@ -37,6 +41,7 @@ import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("upravljanjeProfilov")
 @RequestScoped
+@GroupKey("customers")
 public class UpravljanjeProfilovResources {
 
     private Logger log = LogManager.getLogger(UpravljanjeProfilovResources.class.getName());
@@ -47,6 +52,9 @@ public class UpravljanjeProfilovResources {
     private String baseUrl;
 
     @PostConstruct
+    @Fallback(fallbackMethod = "getAllProfilsFallback")
+    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+    @CommandKey("find-customers")
     private void init() {
         httpClient = ClientBuilder.newClient();
     }
@@ -70,28 +78,13 @@ public class UpravljanjeProfilovResources {
         }*/
     }
 
-    public Response getAllProfilsFallback() {
-        return Response.ok("Napaka").build();
-        /*try {
-            WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/");
-            Invocation.Builder b = wt.request();
-            List<Profil> resp = b.get(new GenericType<Profil>(){});
-            Profil response = b.get(new GenericType<Profil>() {
-            });
-            System.out.println("response je: " + response.toString());
-
-            return Response.ok(response).build();
-        }
-        catch (Exception e) {
-            //log.error(e);
-            throw e;
-        }*/
-    }
 
     @GET
     @Path("{profilId}")
+    @CircuitBreaker
+    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "getAllProfilsFallback")
-    @Timeout
+    @CommandKey("find-customers")
     public Profil getCustomer(@PathParam("profilId") String profilId) {
         WebTarget wt = httpClient.target(baseUrl + "/v1/katalogProfilov/" + profilId);
         Invocation.Builder b = wt.request();
@@ -101,6 +94,16 @@ public class UpravljanjeProfilovResources {
 
         return response;
     }
+
+    public Profil getAllProfilsFallback(String profilId) {
+        Profil response = new Profil();
+
+        System.out.println("response je: delaa" + response.toString());
+
+        return response;
+    }
+
+
 
 
     private String sendGet(String profilId) throws Exception {
